@@ -562,6 +562,37 @@ CSRF_TRUSTED_ORIGINS = [
     'http://localhost:1999',  # frontend-app-authn
 ]
 
+# Using patched edx-django-utils
+OPENEDX_TELEMETRY = ['edx_django_utils.monitoring.OpenTelemetryBackend']
+
+# For configuring OpenTelemetry itself, using this plugin:
+# https://github.com/mitodl/open-edx-plugins/tree/main/src/ol_openedx_otel_monitoring
+OTEL_CONFIGS = {
+    "OTEL_ENABLED": True,
+    "OTEL_TRACES_ENABLED": True,
+    "OTEL_METRICS_ENABLED": True,
+    "TRACES_EXPORTER": "console",
+    "METRICS_EXPORTER": "console",
+    "OTEL_INSTRUMENTATION_SQLCOMMENTER_ENABLED": False,
+}
+OTEL_EXPORTER_OTLP_ENDPOINT = "http://localhost:4318"
+
+# To exclude certain URLs from tracking
+OTEL_PYTHON_DJANGO_EXCLUDED_URLS = "healthcheck"
+
+# To extract attributes from Django's request object
+OTEL_PYTHON_DJANGO_TRACED_REQUEST_ATTRS = "path_info,content_type"
+
+# To capture HTTP request headers as span attributes
+# e.g. content-type,custom_request_header,Accept.*,X-.*,.*
+OTEL_INSTRUMENTATION_HTTP_CAPTURE_HEADERS_SERVER_REQUEST = ".*"
+
+# To capture HTTP response headers as span attributes,
+# e.g. content-type,custom_response_header,Content.*,X-.*,.*
+OTEL_INSTRUMENTATION_HTTP_CAPTURE_HEADERS_SERVER_RESPONSE = ".*"
+
+# To prevent storing sensitive data e.g. .*session.*,set-cookie
+OTEL_INSTRUMENTATION_HTTP_CAPTURE_HEADERS_SANITIZE_FIELDS = ".*session.*,set-cookie"
 
 ################# New settings must go ABOVE this line #################
 ########################################################################
