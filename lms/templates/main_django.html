@@ -6,6 +6,7 @@
   <title>{% block title %}{{ platform_name }}{% endblock %}</title>
 
   <link rel="icon" type="image/x-icon" href="{% favicon_path %}" />
+  <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css"></link>
 
   {% with "js/i18n/"|add:LANGUAGE_CODE|add:"/djangojs.js" as i18njs_path %}
     <script type="text/javascript" src="{% static i18njs_path %}"></script>
