@@ -21,13 +21,16 @@ from openedx.core.release import RELEASE_LINE
 %>
 
 <%page expression_filter="h"/>
-<!doctype html><!--cms-templates-base.html-->
+<!doctype html><!--cms-templates-base.html--><!--local-repo-->
 <!--[if lte IE 9]><html class="ie9 lte9" lang="${LANGUAGE_CODE}"><![endif]-->
 <!--[if !IE]><<!--><html lang="${LANGUAGE_CODE}"><!--<![endif]-->
   <head dir="${static.dir_rtl()}">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="openedx-release-line" content="${RELEASE_LINE}" />
+
+    <link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-alpine.css"></link>
+
     <title>
         <%block name="title"></%block> |
         % if context_course:
