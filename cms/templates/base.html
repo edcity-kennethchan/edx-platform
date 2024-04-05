@@ -202,8 +202,8 @@ from openedx.core.release import RELEASE_LINE
     <div class="modal-cover"></div>
   </body>
     % if getattr(settings, 'IS_PRO', True):
-      <link rel="stylesheet" href="${settings.STATIC_BASE_URL}/js/edx-platform-function.js"></link>
+      <script type="text/javascript" src="${settings.STATIC_BASE_URL}/js/edx-platform-function.js"></script>
     % else:
-      <link rel="stylesheet" href="${settings.STATIC_BASE_URL_UAT}/js/edx-platform-function.js"></link>
+      <script type="text/javascript" src="${settings.STATIC_BASE_URL_UAT}/js/edx-platform-function.js"></script>
     % endif
 </html>
