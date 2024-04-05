@@ -172,6 +172,10 @@ PLATFORM_TWITTER_ACCOUNT = "@YourPlatformTwitterAccount"
 SECRET_KEY = 'dev key'
 FAVICON_PATH = 'images/favicon.ico'
 
+# EdCity: Static Base URL
+IS_PRO = True
+STATIC_BASE_URL = "https://static.edcity.hk/openedx"
+STATIC_BASE_URL_UAT = "https://static-uat.edcity.hk/openedx"
 
 # .. setting_name: STUDIO_NAME
 # .. setting_default: Your Platform Studio

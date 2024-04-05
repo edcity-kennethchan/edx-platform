@@ -1820,6 +1820,11 @@ CMS_BASE = 'localhost:18010'
 # LMS base
 LMS_BASE = 'localhost:18000'
 
+# EdCity: Static Base URL
+IS_PRO = True
+STATIC_BASE_URL = "https://static.edcity.hk/openedx"
+STATIC_BASE_URL_UAT = "https://static-uat.edcity.hk/openedx"
+
 # Studio name
 STUDIO_NAME = 'Studio'
 STUDIO_SHORT_NAME = 'Studio'

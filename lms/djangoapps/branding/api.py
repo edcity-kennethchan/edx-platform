@@ -116,6 +116,11 @@ def get_footer(is_secure=True, language=settings.LANGUAGE_CODE):
             # as a callback to edX. Please do not translate `edX.org`
             "text": _("Take free online courses at edX.org"),
         },
+        "edcity_link": {
+            "url": "https://www.edcity.hk/",
+            "title": "Powered by EdCity",
+            #"image": "http://example.com/openedx.png"
+        },
     }
 
 
