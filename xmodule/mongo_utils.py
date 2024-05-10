@@ -51,6 +51,9 @@ def connect_to_mongodb(
         if read_preference is not None:
             kwargs['read_preference'] = read_preference
 
+    # Add retryWrites option to kwargs
+    kwargs['retryWrites'] = False
+
     mongo_conn = pymongo.database.Database(
         pymongo.MongoClient(
             host=host,
