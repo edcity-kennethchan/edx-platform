@@ -259,6 +259,11 @@
                     window.analytics.track('edx.bi.user.register.optional_fields_selected');
                     $('.optional-fields').toggleClass('hidden');
                 });
+                // In SAML Idp setting, Fullname (USER_DATA.name) is set to SSO return' uid
+                // In auth_user table, we want username is set to SSO return' uid
+                $('#register-name').prop('disabled', true);
+                $('#register-username').prop('disabled', true);
+                $('#toggle_optional_fields').prop('disabled', true);
 
                 // Since the honor TOS text has a composed css selector, it is more future proof
                 // to insert the not toggled optional fields before .honor_tos_combined's parent

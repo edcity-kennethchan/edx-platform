@@ -271,8 +271,9 @@
             var fillData = function() {
                 $email.val(USER_DATA.email);
                 $confirmEmail.val(USER_DATA.email);
-                $name.val(USER_DATA.name);
-                $username.val(USER_DATA.username);
+                $name.val(USER_DATA.name); // In SAML Idp setting, Fullname (USER_DATA.name) is set to SSO return' uid
+                $username.val(USER_DATA.name); // In auth_user table, we want username is set to SSO return' uid
+                //$username.val(USER_DATA.username);
                 $password.val(USER_DATA.password);
                 $levelOfEducation.val(USER_DATA.level_of_education);
                 $gender.val(USER_DATA.gender);
