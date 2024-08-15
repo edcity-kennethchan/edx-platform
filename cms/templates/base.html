@@ -29,10 +29,10 @@ from openedx.core.release import RELEASE_LINE
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="openedx-release-line" content="${RELEASE_LINE}" />
 
-    % if getattr(settings, 'IS_PRO', True):
-      <link rel="stylesheet" href="${settings.STATIC_BASE_URL}/css/edx-platform-prepend.css"></link>
-    % else:
+    % if 'uat' in request.build_absolute_uri():
       <link rel="stylesheet" href="${settings.STATIC_BASE_URL_UAT}/css/edx-platform-prepend.css"></link>
+    % else:
+      <link rel="stylesheet" href="${settings.STATIC_BASE_URL}/css/edx-platform-prepend.css"></link>
     % endif
     
     <title>
@@ -98,10 +98,10 @@ from openedx.core.release import RELEASE_LINE
       })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
     </script>
 
-    % if getattr(settings, 'IS_PRO', True):
-      <link rel="stylesheet" href="${settings.STATIC_BASE_URL}/css/edx-platform-append.css"></link>
+    % if 'uat' in request.build_absolute_uri():
+      <link rel="stylesheet" href="${settings.STATIC_BASE_URL_UAT}/css/edx-platform-append.css"></link>  
     % else:
-      <link rel="stylesheet" href="${settings.STATIC_BASE_URL_UAT}/css/edx-platform-append.css"></link>
+      <link rel="stylesheet" href="${settings.STATIC_BASE_URL}/css/edx-platform-append.css"></link>  
     % endif
   </head>
 
@@ -201,9 +201,9 @@ from openedx.core.release import RELEASE_LINE
     <%include file="widgets/segment-io-footer.html" />
     <div class="modal-cover"></div>
   </body>
-    % if getattr(settings, 'IS_PRO', True):
-      <script type="text/javascript" src="${settings.STATIC_BASE_URL}/js/edx-platform-function.js"></script>
+    % if 'uat' in request.build_absolute_uri():
+      <script type="text/javascript" src="${settings.STATIC_BASE_URL_UAT}/js/edx-platform-function.js"></script>  
     % else:
-      <script type="text/javascript" src="${settings.STATIC_BASE_URL_UAT}/js/edx-platform-function.js"></script>
+      <script type="text/javascript" src="${settings.STATIC_BASE_URL}/js/edx-platform-function.js"></script>  
     % endif
 </html>

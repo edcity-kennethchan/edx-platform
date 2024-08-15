@@ -35,10 +35,10 @@ from common.djangoapps.pipeline_mako import render_require_js_path_overrides
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    % if getattr(settings, 'IS_PRO', True):
-      <link rel="stylesheet" href="${settings.STATIC_BASE_URL}/css/edx-platform-prepend.css"></link>
+    % if 'uat' in request.build_absolute_uri():
+      <link rel="stylesheet" href="${settings.STATIC_BASE_URL_UAT}/css/edx-platform-prepend.css"></link>  
     % else:
-      <link rel="stylesheet" href="${settings.STATIC_BASE_URL_UAT}/css/edx-platform-prepend.css"></link>
+      <link rel="stylesheet" href="${settings.STATIC_BASE_URL}/css/edx-platform-prepend.css"></link>  
     % endif
 
 ## Define a couple of helper functions to make life easier when
@@ -194,10 +194,10 @@ from common.djangoapps.pipeline_mako import render_require_js_path_overrides
   % endfor
   % endif
 
-  % if getattr(settings, 'IS_PRO', True):
-    <link rel="stylesheet" href="${settings.STATIC_BASE_URL}/css/edx-platform-append.css"></link>
-  % else:
+  % if 'uat' in request.build_absolute_uri():
     <link rel="stylesheet" href="${settings.STATIC_BASE_URL_UAT}/css/edx-platform-append.css"></link>
+  % else:
+    <link rel="stylesheet" href="${settings.STATIC_BASE_URL}/css/edx-platform-append.css"></link>  
   % endif
 </head>
 
@@ -250,10 +250,10 @@ from common.djangoapps.pipeline_mako import render_require_js_path_overrides
   % endfor
   % endif
 </body>
-% if getattr(settings, 'IS_PRO', True):
-  <script type="text/javascript" src="${settings.STATIC_BASE_URL}/js/edx-platform-function.js"></script>
-% else:
+% if 'uat' in request.build_absolute_uri():
   <script type="text/javascript" src="${settings.STATIC_BASE_URL_UAT}/js/edx-platform-function.js"></script>
+% else:
+  <script type="text/javascript" src="${settings.STATIC_BASE_URL}/js/edx-platform-function.js"></script>
 % endif
 </html>
 
